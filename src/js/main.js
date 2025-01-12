@@ -4,10 +4,18 @@ const parkData = getParkData();
 
 
 const heroBanner = document.querySelector(".hero-banner");
-const head = document.querySelector("title"); // Select the title element directly
+const head = document.querySelector("title"); 
+const disclaimer = document.querySelector(".disclaimer");
+
+function populateDisclaimer(data) {
+  disclaimer.innerHTML = `<p class="disclaimer">
+      This is not a real NPS website. It is an educational exercise. If you
+      landed here by accident, to find the real website visit
+  <a href="${data.url}">${data.name}</a>` 
+}
 
 function populateHead(data) {
-  head.textContent = data.name; // Update the title dynamically
+  head.textContent = data.name; 
 }
 
 function populateHeroBanner(data) {
@@ -26,3 +34,4 @@ function populateHeroBanner(data) {
 
 populateHeroBanner(parkData);
 populateHead(parkData);
+populateDisclaimer(parkData);
