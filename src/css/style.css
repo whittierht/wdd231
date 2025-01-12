@@ -88,6 +88,11 @@
 
 /* Global styles */
 
+.disclaimer {
+  font-size: .5em;
+  height: 20px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -101,14 +106,6 @@ body {
   margin: 0;
 }
 
-a:link,
-a:visited {
-  color: var(--bs-link-color);
-}
-
-a:hover {
-  color: var(--bs-link-hover-color);
-}
 
 /* Skip links styling */
 .skip-links ul {
@@ -152,6 +149,8 @@ a:hover {
   border-right: 13px solid transparent;
 }
 
+
+
 /* Utility styles */
 
 .visually-hidden {
@@ -165,9 +164,145 @@ a:hover {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+  
 }
 
 svg {
-  background-color: var(--bs-black);
   fill: white;
+}
+
+.global-header__right{
+  margin-right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+
+
+
+.site-title {
+  text-decoration: none;
+}
+
+.global-header h1 {
+  color:white;
+  font-size: 15px;
+}
+
+.global-header {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+.search-icon .icon{
+  max-width: 15px;
+  max-height: 15px;
+  margin-top:20px;
+}
+
+#global-nav-toggle .icon {
+  max-width: 15px;
+  max-height: 15px;
+  
+}
+
+
+
+#global-nav-toggle {
+  background: none;
+  color: white;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid rgb(43, 42, 42);
+  padding: 20px 10px  10px  20px;
+  display: flex;
+  gap: 5px;
+}
+
+
+.park-nav {
+  background-color: black;
+  height: 55px; 
+  margin-top: -23px;
+}
+
+.park-nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+ 
+}
+
+.park-nav ul li {
+  position: relative; 
+  font-size: 10px;
+  
+}
+
+.park-nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%; 
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+
+}
+
+.park-nav ul li .icon {
+  max-width: 20px;
+  max-height: 20px;
+  margin-top: -5px;
+}
+
+.park-nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.park-nav ul li:hover a {
+  color: white; 
+}
+
+
+.hero-banner img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-banner__content {
+  display: flex;
+  gap: 15px;
+  color:white;
+  height: 80px;
+  position: absolute;
+  background-color:rgba(0, 0, 0, .7);
+  top:313px;
+  z-index: 9999;
+  width: 100%;
+}
+
+.hero-banner__subtitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+.hero-banner__title {
+  font-size: 30px;
+  text-decoration: none;
+  letter-spacing: -1px;
+  color:white;
+  margin-left: 10px;
+  margin-top: 25px;
+  
 }
