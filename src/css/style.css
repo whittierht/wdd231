@@ -194,6 +194,7 @@ svg {
   display: flex;
   justify-content: space-between;
   height: 55px;
+  padding-left: 20px;;
 }
 
 .search-icon .icon{
@@ -227,13 +228,15 @@ svg {
   background-color: black;
   height: 55px; 
   margin-top: -23px;
+  
 }
 
 .park-nav ul {
   display: flex;
   list-style-type: none;
   justify-content: center;
- 
+  align-items: center;
+  padding:0;
 }
 
 .park-nav ul li {
@@ -285,9 +288,10 @@ svg {
   height: 80px;
   position: absolute;
   background-color:rgba(0, 0, 0, .7);
-  top:313px;
+  top: 313px;
   z-index: 9999;
   width: 100%;
+  padding-left:20px;
 }
 
 .hero-banner__subtitle {
@@ -305,4 +309,92 @@ svg {
   margin-left: 10px;
   margin-top: 25px;
   
+}
+
+/* intro */
+
+.intro{
+  height:125px;
+}
+
+.intro h1 {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 27px;
+}
+
+.intro p {
+  padding-left:15px;
+  padding-right:15px;
+}
+
+/* info */
+
+.info {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-left:60px;
+  margin-right:60px;
+  margin-bottom: 50px;
+}
+
+.media-card {
+  width: 350px;
+  height:400px;
+  font-size:20px
+}
+
+.media-card a {
+  text-decoration: none;
+  color: black;
+}
+
+
+footer {
+  background-image: url("images/topo_pattern.png");
+  line-height: 0.8;
+  padding-bottom:10px;
+  font-size: 15px;
+}
+
+.contact {
+  padding-top:20px;
+  padding-left: 60px;
+  
+}
+
+
+
+@media screen and (min-width: 750px){
+
+  .intro{
+    height:105px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+  }
+
+  .intro h1 {
+    text-align: left;
+    padding-left: 60px;
+  }
+
+  .intro p {
+    text-align: left;
+    padding-left: 60px;
+  }
+
+  .media-card {
+    width: 33%;
+  }
+
+  .hero-banner__content {
+    padding-left: 50px;
+  }
 }
