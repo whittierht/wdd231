@@ -568,6 +568,7 @@ footer {
 
   .media-card {
     width: 33%;
+    height:auto;
   }
 
   .hero-banner__content {
