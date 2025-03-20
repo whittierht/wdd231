@@ -3,7 +3,7 @@ const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",
   url: "https://www.nps.gov/yell/index.htm",
   fullName: "Yellowstone National Park",
-  parkCode: "yell",
+  parkCode: "Yell",
   description:
     "On March 1, 1872, Yellowstone became the first national park for all to enjoy the unique hydrothermal wonders. Today, millions of people come here each year to camp, hike, and enjoy the majesty of the park.",
   latitude: "44.59824417",
