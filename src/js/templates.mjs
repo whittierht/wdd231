@@ -1,8 +1,4 @@
 
-
-
-
-
  export function mediaCardTemplate(info) {
     return `<div class="media-card">
     <a href="${info.link}">

@@ -1,0 +1,34 @@
+@media screen and (min-width: 750px){
+
+
+  
+    .hero-banner__content {
+      padding-left: 50px;
+    }
+    .global-nav > h2,
+    .global-nav__list:first-of-type,
+    .global-nav__split-button > button {
+      display: none;
+    }
+  
+    .global-nav__split-button {
+      background-color: black;
+    }
+  
+    .global-nav__submenu,
+    .global-nav__list {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    .global-nav__submenu {
+      display: flex;
+      flex-direction: column;
+      max-height: fit-content;
+    }
+    
+  }
+
+
+  
