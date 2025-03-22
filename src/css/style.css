@@ -7,41 +7,4 @@
 @import "partials/screensize.css";
 @import "conditions.css";
 @import "home.css";
-
-
-/* Skip links styling */
-
-/* Title and logo styling */
-
-
-
-
-/* Utility styles */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* header.css */
-
+@import "visitor-center.css";

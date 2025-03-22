@@ -28,7 +28,7 @@ import {
     const html = activityListTemplate(activities);
     activitiesContainer.insertAdjacentHTML("afterbegin", html);
   }
-  
+
   async function init() {
     const parkData = await getParkData();
     const alerts = await getParkAlerts(parkData.parkCode);

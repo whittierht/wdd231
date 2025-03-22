@@ -67,7 +67,7 @@
 
   export function visitorCenterTemplate(center) {
     return `<li class="visitor-center">
-    <h4>${center.name}</h4>
+    <h4><a href="visitor-center.html?id=${center.id}">${center.name}</a></h4>
     <p>${center.description}</p>
     <p>${center.directionsInfo}</p>
     </li>`;
@@ -76,3 +76,85 @@
   export function activityListTemplate(activities) {
     return activities.map((activity) => `<li>${activity.name}</li>`).join("");
   }
+
+export function iconTemplate(iconId) {
+  return [
+    '<svg class="icon" role="presentation" focusable="false">',
+    `  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/sprite.symbol.svg#${iconId}"></use>`,
+    '</svg>'
+  ].join('\n');
+}
+
+export function vcDetailsTemplate(elementId, summaryText, iconId, content) {
+  return [
+    `<details name="vc-details" id="${elementId}">`,
+    '  <summary>',
+    `    ${iconTemplate(iconId)}`,
+    `    ${summaryText}`,
+    '  </summary>',
+    `  ${content}`,
+    '</details>'
+  ].join('\n');
+}
+
+export function vcTitleTemplate(text) {
+  return `${iconTemplate("ranger-station")} ${text}`;
+}
+
+export function vcInfoTemplate(data) {
+  const { url, altText, caption, credit } = data.images[0];
+  return [
+    '<figure>',
+    `  <img src="${url}" alt="${altText}" />`,
+    `  <figcaption>${caption} <span>${credit}</span></figcaption>`,
+    '</figure>',
+    `<p>${data.description}</p>`
+  ].join('\n');
+}
+
+export function listTemplate(data, contentTemplate) {
+  return `<ul>${data.map(contentTemplate).join("")}</ul>`;
+}
+
+function vcAddressTemplate({ type, line1, city, stateCode, postalCode }) {
+  return [
+    '<section class = "vc-addresses__mailing">',
+    `  <h3>${type} Address</h3>`,
+    '  <address>',
+    `    ${line1}<br />`,
+    `    ${city}, ${stateCode} ${postalCode}`,
+    '  </address>',
+    '</section>'
+  ].join('\n');
+}
+
+export function vcAddressesListTemplate(data) {
+  const physical = data.find(({ type }) => type === "Physical");
+  const mailing = data.find(({ type }) => type === "Mailing");
+  return [vcAddressTemplate(physical), mailing ? vcAddressTemplate(mailing) : ''].join('\n');
+}
+
+export function vcAmenityTemplate(data) {
+  return `<li>${data}</li>`;
+}
+
+export function vcDirectionsTemplate(data) {
+  return `<p>${data}</p>`;
+}
+
+export function vcContactsTemplate({ emailAddresses, phoneNumbers }) {
+  return [
+    '<section class="vc-contact__email">',
+    '  <h3>Email Address</h3>',
+    `  <a href="mailto:${emailAddresses[0].emailAddress}">Send this visitor center an email</a>`,
+    '</section>',
+    '<section class="vc-contact__phone">',
+    '  <h3>Phone numbers</h3>',
+    `  <a href="tel:+1${phoneNumbers[0].phoneNumber}">${phoneNumbers[0].phoneNumber}</a>`,
+    '</section>'
+  ].join('\n');
+}
+
+export function vcImageTemplate({ url, altText }) {
+  return `<li><img src="${url}" alt="${altText}" ></li>`;
+}

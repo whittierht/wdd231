@@ -6,6 +6,15 @@
     margin-left: 20px;
   }
   
+  .visitor-center a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .visitor-center a:hover {
+    text-decoration: underline;
+  }
+
   .alerts {
     margin-left: 20px;
   }
