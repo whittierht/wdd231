@@ -5,7 +5,10 @@ export function setHeaderInfo(data) {
     disclaimer.href = data.url;
     disclaimer.innerHTML = data.fullName;
     document.querySelector("head > title").textContent = data.fullName;
-    document.querySelector(".hero-banner > img").src = data.images[0].url;
+    const heroImg = document.querySelector(".hero-banner > img");
+    if (heroImg) {
+    heroImg.src = data.images?.[0]?.url?.trim() || "default-image.jpg";
+    }
     document.querySelector(".hero-banner__content").innerHTML = parkInfoTemplate(data);
   }
   
