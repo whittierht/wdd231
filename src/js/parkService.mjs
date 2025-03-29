@@ -203,7 +203,10 @@ export const parkInfoLinks = [
 ];
 
 const baseUrl = "https://developer.nps.gov/api/v1/";
-const apiKey = import.meta.env.VITE_NPS_API_KEY;
+const apiKey = import.meta.env?.VITE_NPS_API_KEY || "";
+if (!apiKey) {
+  console.error("API key is missing! Check your .env file.");
+}
 
 async function getJson(url) {
   const options = {
@@ -212,39 +215,47 @@ async function getJson(url) {
       "X-Api-Key": apiKey
     }
   };
-  let data = {};
-  const response = await fetch(baseUrl + url, options);
-  if (response.ok) {
-    data = await response.json();
-  } else throw new Error("response not ok");
-  return data;
+
+  try {
+    const response = await fetch(baseUrl + url, options);
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return null;
+  }
 }
 
 export function getInfoLinks(data) {
+  if (!Array.isArray(data)) {
+    console.error("Invalid data passed to getInfoLinks:", data);
+    return [];
+  }
 
-  const withUpdatedImages = parkInfoLinks.map((item, index) => {
-    item.image = data[index + 2].url;
+  return parkInfoLinks.map((item, index) => {
+    item.image = data[index + 2]?.url || "default-image.jpg";
     return item;
   });
-  return withUpdatedImages;
 }
 
 export async function getParkData() {
   const parkData = await getJson("parks?parkCode=yell");
-  return parkData.data[0];
+  return parkData?.data?.[0] || null;
 }
 
 export async function getParkAlerts(code) {
   const parkData = await getJson(`alerts?parkCode=${code}`);
-  return parkData.data;
+  return parkData?.data || [];
 }
 
 export async function getParkVisitorCenters(code) {
   const parkData = await getJson(`visitorcenters?parkCode=${code}`);
-  return parkData.data;
+  return parkData?.data || [];
 }
 
 export async function getParkVisitorCenterDetails(id) {
   const parkData = await getJson(`visitorcenters?id=${id}`);
-  return parkData.data[0];
+  return parkData?.data?.[0] || null;
 }
