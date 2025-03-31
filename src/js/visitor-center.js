@@ -15,11 +15,11 @@ import {
 } from "./templates.mjs";
 
 
-/*  function getParameters(parameter) {
+ function getParameters(parameter) {
     const search = location.search;
     const parameters = new URLSearchParams(search);
     return parameters.get(parameter);
-}*/
+}
 
 
 
